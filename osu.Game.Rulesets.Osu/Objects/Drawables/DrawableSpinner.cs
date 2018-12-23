@@ -146,9 +146,10 @@ namespace osu.Game.Rulesets.Osu.Objects.Drawables
 
                 const float duration = 200;
 
-                Disc.FadeAccent(completeColour, duration);
+                // todo: figure why these are crashing on iOS
+                //Disc.FadeAccent(completeColour, duration);
+                //Background.FadeAccent(completeColour, duration);
 
-                Background.FadeAccent(completeColour, duration);
                 Background.FadeOut(duration);
 
                 circle.FadeColour(completeColour, duration);
