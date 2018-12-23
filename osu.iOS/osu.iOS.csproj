@@ -148,14 +148,8 @@
     <Reference Include="Microsoft.CodeAnalysis.CSharp">
       <HintPath>..\packages\Microsoft.CodeAnalysis.CSharp.2.10.0\lib\netstandard1.3\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
     </Reference>
-    <Reference Include="osu.Framework">
-      <HintPath>..\packages\ppy.osu.Framework.0.0.7742\lib\netstandard2.0\osu.Framework.dll</HintPath>
-    </Reference>
     <Reference Include="osuTK.iOS">
       <HintPath>..\packages\ppy.osuTK.iOS.1.0.50\lib\xamarinios10\osuTK.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="osu.Framework.iOS">
-      <HintPath>..\packages\ppy.osu.Framework.iOS.0.0.7742\lib\xamarinios10\osu.Framework.iOS.dll</HintPath>
     </Reference>
     <Reference Include="Humanizer">
       <HintPath>..\packages\Humanizer.Core.2.5.16\lib\netstandard2.0\Humanizer.dll</HintPath>
@@ -334,6 +328,14 @@
     <ProjectReference Include="..\osu.Game.Rulesets.Taiko\osu.Game.Rulesets.Taiko.csproj">
       <Project>{F167E17A-7DE6-4AF5-B920-A5112296C695}</Project>
       <Name>osu.Game.Rulesets.Taiko</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\osu-framework\osu.Framework.iOS\osu.Framework.iOS.csproj">
+      <Project>{71C65A23-53F3-47C5-BB9B-E22B871A152E}</Project>
+      <Name>osu.Framework.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\osu-framework\osu.Framework\osu.Framework.csproj">
+      <Project>{1945EF54-FF1F-4F5B-997F-D6D0594632AF}</Project>
+      <Name>osu.Framework</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
