@@ -47,6 +47,7 @@
     <MtouchVerbosity></MtouchVerbosity>
     <MtouchExtraArgs>--nolinkaway -gcc_flags "-lstdc++ -framework AudioToolbox -framework SystemConfiguration -framework CFNetwork -framework Accelerate -force_load libbass.a -force_load libbass_fx.a"</MtouchExtraArgs>
     <MtouchI18n>cjk,mideast,other,rare,west</MtouchI18n>
+    <OptimizePNGs>false</OptimizePNGs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>pdbonly</DebugType>
@@ -81,6 +82,7 @@
     <MtouchVerbosity></MtouchVerbosity>
     <MtouchExtraArgs>--nolinkaway -gcc_flags "-lstdc++ -framework AudioToolbox -framework SystemConfiguration -framework CFNetwork -framework Accelerate -force_load libbass.a -force_load libbass_fx.a"</MtouchExtraArgs>
     <MtouchI18n>cjk,mideast,other,rare,west</MtouchI18n>
+    <OptimizePNGs>false</OptimizePNGs>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
