@@ -246,7 +246,7 @@ namespace osu.Game.Screens.Menu
                         {
                             logoTracking = false;
 
-                            game?.Toolbar.Hide();
+                            //game?.Toolbar.Hide();
 
                             logo.ClearTransforms(targetMember: nameof(Position));
                             logo.RelativePositionAxes = Axes.Both;
