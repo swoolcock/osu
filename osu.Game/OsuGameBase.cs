@@ -76,7 +76,7 @@ namespace osu.Game
 
         protected AssemblyName AssemblyName => Assembly.GetEntryAssembly()?.GetName() ?? new AssemblyName { Version = new Version() };
 
-        public bool IsDeployedBuild => AssemblyName.Version.Major > 0;
+        public bool IsDeployedBuild => !DebugUtils.IsDebug;
 
         public string Version
         {
