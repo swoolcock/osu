@@ -71,7 +71,7 @@ namespace osu.Game.Beatmaps
                 try
                 {
                     var trackData = store.GetStream(getPathForFile(Metadata.AudioFile));
-                    return trackData == null ? null : trackManager.CreateTrack(trackData, false);
+                    return trackData == null ? null : new TrackBass(trackData, false);
                 }
                 catch
                 {
