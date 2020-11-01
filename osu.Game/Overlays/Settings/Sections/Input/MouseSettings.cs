@@ -6,6 +6,7 @@ using osu.Framework.Allocation;
 using osu.Framework.Bindables;
 using osu.Framework.Configuration;
 using osu.Framework.Graphics;
+using osu.Framework.Platform;
 using osu.Game.Configuration;
 using osu.Game.Graphics.UserInterface;
 using osu.Game.Input;
@@ -21,7 +22,7 @@ namespace osu.Game.Overlays.Settings.Sections.Input
         private Bindable<string> ignoredInputHandler;
 
         [BackgroundDependencyLoader]
-        private void load(OsuConfigManager osuConfig, FrameworkConfigManager config)
+        private void load(OsuConfigManager osuConfig, FrameworkConfigManager config, GameHost host)
         {
             var configSensitivity = config.GetBindable<double>(FrameworkSetting.CursorSensitivity);
 
@@ -64,7 +65,7 @@ namespace osu.Game.Overlays.Settings.Sections.Input
                 },
             };
 
-            if (RuntimeInfo.OS != RuntimeInfo.Platform.Windows)
+            if (!RuntimeInfo.IsDesktop)
             {
                 rawInputToggle.Disabled = true;
                 sensitivityBindable.Disabled = true;
@@ -74,10 +75,11 @@ namespace osu.Game.Overlays.Settings.Sections.Input
                 rawInputToggle.ValueChanged += enabled =>
                 {
                     // this is temporary until we support per-handler settings.
-                    const string raw_mouse_handler = @"OsuTKRawMouseHandler";
-                    const string standard_mouse_handler = @"OsuTKMouseHandler";
+                    bool useSdl = host.Window is DesktopWindow;
+                    string rawMouseHandler = useSdl ? "RawMouseHandler" : "OsuTKRawMouseHandler";
+                    string standardMouseHandler = useSdl ? "MouseHandler" : "OsuTKMouseHandler";
 
-                    ignoredInputHandler.Value = enabled.NewValue ? standard_mouse_handler : raw_mouse_handler;
+                    ignoredInputHandler.Value = enabled.NewValue ? standardMouseHandler : rawMouseHandler;
                 };
 
                 ignoredInputHandler = config.GetBindable<string>(FrameworkSetting.IgnoredInputHandlers);
